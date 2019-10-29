@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "nodejs-auth-api",
   "version": "1.0.0",
   "description": "nodejs-auth-api",
   "main": "index.js",
@@ -7,7 +7,8 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "nodemon": "^1.19.4"
+    "nodemon": "^1.19.4",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
