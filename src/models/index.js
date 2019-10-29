@@ -7,8 +7,20 @@ const connectDb = () => {
     useCreateIndex: true,
     useUnifiedTopology: true,
     useNewUrlParser: true,
+  }, function (err, db) {
+    if (!err) {
+      db.on('close', function () {
+        if (this._callBackStore) {
+          for (var key in this._callBackStore._notReplied) {
+            this._callHandler(key, null, 'Connection Closed!');
+          }
+        }
+      });
+    } else {
+      console.log('Could not connect to the database.');
+    };
   });
-};
+}
 
 const models = {
   User,

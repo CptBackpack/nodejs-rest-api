@@ -3,7 +3,9 @@ import cors from 'cors';
 import express from 'express';
 // import uuidv4 from 'uuid/v4';
 import routes from './routes';
-import models, { connectDb } from './models';
+import models, {
+  connectDb
+} from './models';
 
 
 const app = express();
@@ -34,7 +36,6 @@ app.get('/', (req, res) => {
 
 console.log('Connecting to DB...');
 connectDb().then(async () => {
-
   if (eraseDatabaseOnSync) {
     await Promise.all([
       models.User.deleteMany({}),
@@ -44,7 +45,7 @@ connectDb().then(async () => {
   }
   console.log('Connecting to DB: Successfull!');
   app.listen(process.env.PORT, () =>
-    console.log(`Example app listening on port ${process.env.PORT}!`),
+    console.log(`SERVER LISTENING ON PORT: ${process.env.PORT}!`),
   );
 });
 
