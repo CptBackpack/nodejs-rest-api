@@ -61,11 +61,11 @@ const createUsersWithMessages = async () => {
     user: user1.id,
   });
   const message2 = new models.Message({
-    text: 'Happy to unleash the apocalypse! ^_^',
+    text: 'Happy to unleash the Apocalypse! ^_^',
     user: user2.id,
   });
   const message3 = new models.Message({
-    text: 'Published a complete guidebook on how to successfully unleash the apocalypse.',
+    text: 'Published a complete guidebook on how to successfully unleash the Apocalypse.',
     user: user2.id,
   });
   await message1.save();
