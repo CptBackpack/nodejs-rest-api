@@ -43,9 +43,9 @@ connectDb().then(async () => {
     ]);
     createUsersWithMessages();
   }
-  console.log('Connecting to DB: Successfull!');
+  console.log('Connecting to DB... Success!');
   app.listen(process.env.PORT, () =>
-    console.log(`SERVER LISTENING ON PORT: ${process.env.PORT}!`),
+    console.log('SERVER LISTENING ON PORT ' +  process.env.PORT),
   );
 });
 
