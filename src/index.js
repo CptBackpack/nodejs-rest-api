@@ -15,6 +15,8 @@ const {
     deleteOp,
     updateOp
 } = require('./database/ops');
+const jwt = require('express-jwt');
+const jwksRsa = require('jwks-rsa');
 
 // defining the Express app
 const app = express();
@@ -27,7 +29,7 @@ app.use(helmet());
 // using bodyParser to parse JSON bodies into JS objects
 app.use(bodyParser.urlencoded({
     extended: true
-  }));
+}));
 
 app.use(bodyParser.json());
 
@@ -42,6 +44,23 @@ app.use(morgan('combined'));
 app.get('/', async (req, res) => {
     res.send(await getOps());
 });
+
+const checkJwt = jwt({
+    secret: jwksRsa.expressJwtSecret({
+      cache: true,
+      rateLimit: true,
+      jwksRequestsPerMinute: 5,
+      jwksUri: `https://dmbackpack.eu.auth0.com/.well-known/jwks.json`
+    }),
+  
+    // Validate the audience and the issuer.
+    audience: 'https://dmbackpack.eu.auth0.com/api/v2/',
+    issuer: `https://dmbackpack.eu.auth0.com/`,
+    algorithms: ['RS256']
+  });
+
+
+app.use(checkJwt);
 
 app.post('/', async (req, res) => {
     const newOp = req.body;
@@ -65,7 +84,7 @@ app.put('/:id', async (req, res) => {
     await updateOp(req.params.id, updatedOp);
     res.send({
         message: req.body
-        
+
     });
 });
 
