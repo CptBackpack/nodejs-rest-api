@@ -1,23 +1,32 @@
 {
-  "name": "nodejs-rest-api",
+  "name": "api",
   "version": "1.0.0",
-  "description": "",
+  "description": "nodejs-auth-api",
   "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.6.3",
+    "@babel/preset-env": "^7.6.3"
+  },
   "scripts": {
+    "start": "nodemon --exec babel-node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CptBackpack/nodejs-auth-api.git"
+  },
   "keywords": [],
-  "author": "",
+  "author": "Razvan Backpack <razvan.truta@outlook.com> (dmbackpack.com)",
   "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "express-jwt": "^5.3.1",
-    "helmet": "^3.21.2",
-    "jwks-rsa": "^1.6.0",
-    "mongodb": "^3.3.3",
-    "mongodb-memory-server": "^6.0.1",
-    "morgan": "^1.9.1"
-  }
+  "bugs": {
+    "url": "https://github.com/CptBackpack/nodejs-auth-api/issues"
+  },
+  "homepage": "https://github.com/CptBackpack/nodejs-auth-api#readme"
 }
