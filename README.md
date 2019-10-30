@@ -35,7 +35,7 @@ You can do **GET** requests on
 You can do **POST** requests on
  - http://localhost:3001/user/
  - http://localhost:3001/message/
- - http://localhost:3001/user/u/
+ - http://localhost:3001/user/checkUser/
  
 You can do **DELETE** requests on
  - http://localhost:3001/user/:userId
