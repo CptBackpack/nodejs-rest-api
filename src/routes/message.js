@@ -5,10 +5,6 @@ const router = Router();
 
 router.get('/', async (req, res) => {
   let messages = await req.context.models.Message.find();
-
-  // console.log(await req.context.models.User.findById(
-  //   messages.user,
-  // ));
   
   let l = messages.length;
   for (let i = 0; i < l; i++){
@@ -16,7 +12,10 @@ router.get('/', async (req, res) => {
       messages[i].user,
     )
   }
-
+  const log = await req.context.models.Log.create({
+    user: req.context.me.id,
+    action: "GET /message"
+  })
   return res.send(messages);
 });
 
@@ -24,6 +23,10 @@ router.get('/:messageId', async (req, res) => {
   const message = await req.context.models.Message.findById(
     req.params.messageId,
   );
+  const log = await req.context.models.Log.create({
+    user: req.context.me.id,
+    action: "GET /message/:messageId"
+  })
   return res.send(message);
 });
 
@@ -32,6 +35,10 @@ router.post('/', async (req, res) => {
     text: req.body.text,
     user: req.context.me.id,
   });
+  const log = await req.context.models.Log.create({
+    user: req.context.me.id,
+    action: "POST /message"
+  })
   return res.send(message);
 });
 
@@ -43,6 +50,12 @@ router.delete('/:messageId', async (req, res) => {
   if (message) {
     result = await message.remove();
   }
+
+  const log = await req.context.models.Log.create({
+    user: req.context.me.id,
+    action: "DELETE /message/:messageId"
+  })
+
   return res.send(result);
 });
 

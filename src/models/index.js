@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import User from './user';
 import Message from './message';
+import Log from './log';
 
 const connectDb = () => {
   return mongoose.connect(process.env.DATABASE_URL, {
@@ -24,7 +25,8 @@ const connectDb = () => {
 
 const models = {
   User,
-  Message
+  Message,
+  Log,
 };
 
 export {

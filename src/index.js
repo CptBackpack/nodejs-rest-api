@@ -29,6 +29,7 @@ app.use(async (req, res, next) => {
 app.use('/session', routes.session);
 app.use('/user', routes.user);
 app.use('/message', routes.message);
+app.use('/log', routes.log);
 
 app.get('/', (req, res) => {
   return res.send(':)');
@@ -45,7 +46,7 @@ connectDb().then(async () => {
   }
   console.log('Connecting to DB... Success!');
   app.listen(process.env.PORT, () =>
-    console.log('SERVER LISTENING ON PORT ' +  process.env.PORT),
+    console.log('SERVER LISTENING ON PORT ' + process.env.PORT),
   );
 });
 
