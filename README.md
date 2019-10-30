@@ -16,6 +16,26 @@ to false if you don't want your database to get erased at every run.
 
 ## Everything set up?
 Great! Now cd to the directory and
-
+	
+    npm install
+then
+	
     npm start
 
+### What can you do?
+You can do **GET** requests on 
+
+ - http://localhost:3000/user/
+ - http://localhost:3000/user/:userId
+ - http://localhost:3000/message/
+ - http://localhost:3000/message/:messageId
+ - http://localhost:3000/log/
+ - http://localhost:3000/session/
+
+You can do **POST** requests on
+ - http://localhost:3000/user/
+ - http://localhost:3000/message/
+ 
+You can do **DELETE** requests on
+ - http://localhost:3000/user/:userId
+ - http://localhost:3000/message/:messageId
