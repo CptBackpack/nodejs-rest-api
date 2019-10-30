@@ -14,6 +14,14 @@ router.get('/:userId', async (req, res) => {
   return res.send(user);
 });
 
+router.post('/', async (req, res) => {
+  const user = await req.context.models.User.create({
+    username: req.body.username
+  });
+  return res.send(user);
+});
+
+
 router.delete('/:userId', async (req, res) => {
   const user = await req.context.models.User.findById(
     req.params.userId,
