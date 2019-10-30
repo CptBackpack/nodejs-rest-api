@@ -25,17 +25,18 @@ then
 ### What can you do?
 You can do **GET** requests on 
 
- - http://localhost:3000/user/
- - http://localhost:3000/user/:userId
- - http://localhost:3000/message/
- - http://localhost:3000/message/:messageId
- - http://localhost:3000/log/
- - http://localhost:3000/session/
+ - http://localhost:3001/user/
+ - http://localhost:3001/user/:userId
+ - http://localhost:3001/message/
+ - http://localhost:3001/message/:messageId
+ - http://localhost:3001/log/
+ - http://localhost:3001/session/
 
 You can do **POST** requests on
- - http://localhost:3000/user/
- - http://localhost:3000/message/
+ - http://localhost:3001/user/
+ - http://localhost:3001/message/
+ - http://localhost:3001/user/u/
  
 You can do **DELETE** requests on
- - http://localhost:3000/user/:userId
- - http://localhost:3000/message/:messageId
+ - http://localhost:3001/user/:userId
+ - http://localhost:3001/message/:messageId
