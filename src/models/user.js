@@ -5,6 +5,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         unique: true,
     },
+    password: {
+        type: String,
+    }
 });
 
 userSchema.statics.findByLogin = async function (login) {
@@ -16,6 +19,10 @@ userSchema.statics.findByLogin = async function (login) {
             email: login
         });
     }
+	
+	if(!user) {
+		return { username: "INVALID" };
+	}
     return user;
 };
 

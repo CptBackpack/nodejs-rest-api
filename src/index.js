@@ -54,9 +54,11 @@ connectDb().then(async () => {
 const createUsersWithMessages = async () => {
   const user1 = new models.User({
     username: 'Cthulhu',
+    password: 'daddy100',
   });
   const user2 = new models.User({
     username: 'Nyarlathotep',
+    password: 'daddyissues',
   });
   const message1 = new models.Message({
     text: 'Doing housework in R\'Lyeh',

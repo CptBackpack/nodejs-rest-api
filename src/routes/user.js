@@ -22,6 +22,17 @@ router.get('/:userId', async (req, res) => {
   return res.send(user);
 });
 
+router.post('/checkUser/', async (req, res) => {
+  const user = await req.context.models.User.findByLogin(
+    req.body.userLogin,
+  );
+  const log = await req.context.models.Log.create({
+    user: req.context.me.id,
+    action: "GET /user/:userLogin"
+  })
+  return res.send(user);
+});
+
 router.post('/', async (req, res) => {
   const user = await req.context.models.User.create({
     username: req.body.username
