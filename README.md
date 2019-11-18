@@ -1,8 +1,8 @@
 
 
-## nodejs-rest-api 
+## nodejs-rest-api ![](https://github.com/CptBackpack/nodejs-rest-api/workflows/Node%20CI/badge.svg)
 This is a playground project that I am using to learn Express.js and other techs for Node.js back-end.
-[![Actions Status](https://github.com/CptBackpack/nodejs-rest-api/workflows/Node+CI/badge.svg)](https://github.com/CptBackpack/nodejs-rest-api/actions)
+
 
 ## In case you are interested...
 ... for any reason, it uses [MongoDB](https://www.mongodb.com/download-center/community) to store the data.
