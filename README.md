@@ -1,6 +1,6 @@
 
 
-## nodejs-rest-api ![Actions Status](https://github.com/CptBackpack/nodejs-rest-api/workflows/Node+CI/badge.svg)](https://github.com/CptBackpack/nodejs-rest-api/actions)
+## nodejs-rest-api [![Actions Status](https://github.com/CptBackpack/nodejs-rest-api/workflows/Node+CI/badge.svg)](https://github.com/CptBackpack/nodejs-rest-api/actions)
 This is a playground project that I am using to learn Express.js and other techs for Node.js back-end.
 
 
