@@ -1,7 +1,6 @@
 ![](https://github.com/CptBackpack/nodejs-rest-api/workflows/Node%20CI/badge.svg)
 
 ## nodejs-rest-api
->>>>>>> Stashed changes
 This is a playground project that I am using to learn Express.js and other techs for Node.js back-end.
 
 
