@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 ![](https://github.com/CptBackpack/nodejs-rest-api/workflows/Node%20CI/badge.svg)
 
 ## nodejs-rest-api 
