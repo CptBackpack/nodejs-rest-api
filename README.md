@@ -21,22 +21,3 @@ Great! Now cd to the directory and
 then
 	
     npm start
-
-### What can you do?
-You can do **GET** requests on 
-
- - http://localhost:3001/user/
- - http://localhost:3001/user/:userId
- - http://localhost:3001/message/
- - http://localhost:3001/message/:messageId
- - http://localhost:3001/log/
- - http://localhost:3001/session/
-
-You can do **POST** requests on
- - http://localhost:3001/user/
- - http://localhost:3001/message/
- - http://localhost:3001/user/checkUser/
- 
-You can do **DELETE** requests on
- - http://localhost:3001/user/:userId
- - http://localhost:3001/message/:messageId
