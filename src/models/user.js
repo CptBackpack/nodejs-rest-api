@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
     },
-    token: {
+    authToken: {
         type: String,
         unique: true,
     }
@@ -31,6 +31,19 @@ userSchema.statics.findByLogin = async function (login, password) {
 	}
     return user;
 };
+
+userSchema.statics.findByToken = async function(login, token){
+    let user = await this.findOne({
+        username: login,
+        authToken: token
+    });
+
+    if(!user){
+        return { username: "EXPIRED" };
+    }
+
+    return user;
+}
 
 userSchema.pre('remove', function (next) {
     this.model('Message').deleteMany({

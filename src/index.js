@@ -20,7 +20,6 @@ app.use(express.urlencoded({
 app.use(async (req, res, next) => {
   req.context = {
     models,
-    me: await models.User.findByLogin('Cthulhu'),
   };
 
   next();
@@ -53,28 +52,9 @@ connectDb().then(async () => {
 
 const createUsersWithMessages = async () => {
   const user1 = new models.User({
-    username: 'Cthulhu',
-    password: 'daddy100',
+    username: 'admin',
+    password: 'admin',
+    authToken: '',
   });
-  const user2 = new models.User({
-    username: 'Nyarlathotep',
-    password: 'daddyissues',
-  });
-  const message1 = new models.Message({
-    text: 'Doing housework in R\'Lyeh',
-    user: user1.id,
-  });
-  const message2 = new models.Message({
-    text: 'Happy to unleash the Apocalypse! ^_^',
-    user: user2.id,
-  });
-  const message3 = new models.Message({
-    text: 'Published a complete guidebook on how to successfully unleash the Apocalypse.',
-    user: user2.id,
-  });
-  await message1.save();
-  await message2.save();
-  await message3.save();
   await user1.save();
-  await user2.save();
 };
