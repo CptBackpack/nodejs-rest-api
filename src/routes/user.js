@@ -25,7 +25,7 @@ router.get('/:userId', async (req, res) => {
 });
 
 router.post('/login/', async (req, res) => {
-  var authToken;
+  let authToken;
   const user = await req.context.models.User.findByLogin(
     req.body.userLogin,
     req.body.userPassword
@@ -34,9 +34,13 @@ router.post('/login/', async (req, res) => {
     if (user.authToken == "") {
       authToken = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
       user.authToken = authToken;
-      const addToken = await req.context.models.User.updateOne(
+      let ExpiryDate = new Date();
+      ExpiryDate.setMinutes(ExpiryDate.getMinutes() + 120);
+      user.authTokenExpireDate = ExpiryDate;
+      const addToken = await req.context.models.User.updateMany(
         {_id: user.id}, 
-        {authToken: user.authToken})
+        {authToken: user.authToken,
+        authTokenExpireDate: ExpiryDate})
     }
   }
   const log = await req.context.models.Log.create({
@@ -58,12 +62,18 @@ router.post('/checkUser/', async (req, res) => {
     req.body.userLogin,
     req.body.authToken
   );
-  console.log(user);
-  if (user.username != "EXPIRED") {
-    const log = await req.context.models.Log.create({
-      user: user.id,
-      action: "GET /user/:userId"
-    })
+  let CurrentDate = new Date();
+  let ExpiryDate = new Date(user.authTokenExpireDate);
+  
+  if(CurrentDate > ExpiryDate){
+    console.log("Expired!");
+    const removeTOken = await req.context.models.User.updateOne(
+      {_id: user.id}, 
+      {authToken: '',
+      authTokenExpireDate: ''})
+      user.username = "EXPIRED";
+      user.authToken = '';
+      user.authTokenExpireDate = '';
   }
   return res.send(user);
 });

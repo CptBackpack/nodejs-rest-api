@@ -9,7 +9,7 @@ import models, {
 
 
 const app = express();
-const eraseDatabaseOnSync = true;
+const eraseDatabaseOnSync = false;
 
 app.use(cors());
 app.use(express.json());
@@ -55,6 +55,7 @@ const createUsersWithMessages = async () => {
     username: 'admin',
     password: 'admin',
     authToken: '',
+    authTokenExpireDate: '',
   });
   await user1.save();
 };

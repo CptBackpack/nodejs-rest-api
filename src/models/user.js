@@ -11,6 +11,9 @@ const userSchema = new mongoose.Schema({
     authToken: {
         type: String,
         unique: true,
+    },
+    authTokenExpireDate:{
+        type: String,
     }
 });
 
